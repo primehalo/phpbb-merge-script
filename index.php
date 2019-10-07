@@ -69,7 +69,7 @@ foreach ($fkey as $table => $keys) {
 	}
 }
 
-$mysqli = new mysqli($dbhost,$dbuser,$dbpasswd,$dbname);
+$mysqli = new mysqli($dbhost, $dbuser, $dbpasswd, $dbname);
 if (mysqli_connect_errno()) die("Connect failed: ". mysqli_connect_error());
 
 //----------------------------------------------------------------------------//
@@ -80,7 +80,7 @@ echo "<h2>(2) Determining offsets for primary keys on $db1\n</h2>";
 ob_flush();flush();
 foreach ($pkey as $table => $key) {
 	// Get the maximum value from db1 and add 100
-	$db1table="$db1$table";
+	$db1table = "$db1$table";
 	$result = $mysqli->query("SELECT MAX($key) FROM $db1table");
 	$row = $result->fetch_row();
 	$max = 0;
@@ -308,9 +308,6 @@ foreach ($predefined_groups as $from => $to) {
 	$mysqli->query("UPDATE {$db3}acl_groups SET group_id={$to} WHERE group_id={$from}");
 	echo "Changing group_id $from -> $to\n";
 }
-//$sql = "UPDATE {$db3}groups SET group_id=5 WHERE group_id=22717";
-//$sql = "UPDATE {$db3}users SET group_id=5 WHERE group_id=22717";
-//$sql = "UPDATE {$db3}user_group SET group_id=5 WHERE group_id=22717";
 */
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
